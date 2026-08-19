@@ -84,7 +84,8 @@ function renderHome() {
     
     const today = new Date();
     const currentDay = today.getDay();
-    const dateString = today.toISOString().split('T')[0];
+    const localDate = new Date(today.getTime() - (today.getTimezoneOffset() * 60000));
+    const dateString = localDate.toISOString().split('T')[0];
 
     // Render Week Progress
     const daysContainer = document.getElementById('days-container');
@@ -197,7 +198,7 @@ function renderExercise() {
     if (!memory.weights) memory.weights = {};
     weightInput.value = memory.weights[exercise.name] || '';
     
-    weightInput.oninput = (e) => {
+    weightInput.onchange = (e) => {
         memory.weights[exercise.name] = e.target.value;
         saveMemory();
     };
@@ -290,7 +291,10 @@ function hideTimer() {
 }
 
 function showCompletionModal() {
-    const dateString = new Date().toISOString().split('T')[0];
+    const today = new Date();
+    const localDate = new Date(today.getTime() - (today.getTimezoneOffset() * 60000));
+    const dateString = localDate.toISOString().split('T')[0];
+    
     memory[dateString] = activeWorkout.id;
     saveMemory();
     

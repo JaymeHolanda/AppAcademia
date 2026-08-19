@@ -80,9 +80,9 @@ input:focus { border-color: var(--primary); box-shadow: 0 0 10px var(--primary-g
 .btn-primary:active { transform: scale(0.96); }
 
 /* --- HEADER & HOME --- */
-.app-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 20px 10px; }
+.app-header { display: flex; justify-content: space-between; align-items: center; padding: max(45px, env(safe-area-inset-top)) 20px 10px; }
 .icon-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 1.1rem; }
-.content-scroll { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 30px; }
+.content-scroll { flex: 1; overflow-y: auto; padding: 10px 20px 30px; display: flex; flex-direction: column; gap: 30px; }
 .content-scroll::-webkit-scrollbar { display: none; }
 
 .days-container { display: flex; justify-content: space-between; margin-top: 15px; }
