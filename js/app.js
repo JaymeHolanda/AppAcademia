@@ -1,3 +1,15 @@
+// --- FIREBASE CONFIG ---
+const firebaseConfig = {
+  apiKey: "AIzaSyCxvKi6pqM7bFv8s8Xj5Q5BzP_p1By-pAw",
+  authDomain: "appupplower.firebaseapp.com",
+  projectId: "appupplower",
+  storageBucket: "appupplower.firebasestorage.app",
+  messagingSenderId: "408829264926",
+  appId: "1:408829264926:web:64b61260f4f16676edda0f"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 // --- STATE MANAGEMENT ---
 let currentUser = null;
 let memory = {}; 
@@ -27,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- AUTHENTICATION ---
-function checkLogin() {
+async function checkLogin() {
     const savedUser = localStorage.getItem('gymApp_user');
     if (savedUser) {
         currentUser = savedUser;
-        loadMemory();
+        await loadMemory();
         renderHome();
         switchView(viewHome);
     } else {
@@ -39,13 +51,23 @@ function checkLogin() {
     }
 }
 
-function handleLogin(e) {
+async function handleLogin(e) {
     e.preventDefault();
     const username = document.getElementById('username').value.trim();
     if (username) {
         currentUser = username;
         localStorage.setItem('gymApp_user', currentUser);
-        loadMemory();
+        
+        const btn = document.querySelector('#login-form button');
+        const oldText = btn.textContent;
+        btn.textContent = 'Buscando Nuvem...';
+        btn.disabled = true;
+
+        await loadMemory();
+
+        btn.textContent = oldText;
+        btn.disabled = false;
+        
         renderHome();
         switchView(viewHome);
     }
@@ -59,17 +81,30 @@ function handleLogout() {
 }
 
 // --- MEMORY / DATABASE ---
-function loadMemory() {
-    const data = localStorage.getItem(`gymApp_memory_${currentUser}`);
-    if (data) {
-        memory = JSON.parse(data);
-    } else {
-        memory = {};
+async function loadMemory() {
+    try {
+        const docRef = db.collection('users').doc(currentUser);
+        const docSnap = await docRef.get();
+        if (docSnap.exists) {
+            memory = docSnap.data();
+        } else {
+            memory = {};
+        }
+    } catch (e) {
+        console.error("Firebase load error, fallback to local", e);
+        const data = localStorage.getItem(`gymApp_memory_${currentUser}`);
+        if (data) memory = JSON.parse(data);
     }
 }
 
-function saveMemory() {
+async function saveMemory() {
+    // Salva localmente como backup e em seguida envia para a nuvem
     localStorage.setItem(`gymApp_memory_${currentUser}`, JSON.stringify(memory));
+    try {
+        await db.collection('users').doc(currentUser).set(memory);
+    } catch (e) {
+        console.error("Firebase save error", e);
+    }
 }
 
 // --- UI NAVIGATION ---
