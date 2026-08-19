@@ -53,7 +53,7 @@ async function checkLogin() {
 
 async function handleLogin(e) {
     e.preventDefault();
-    const username = document.getElementById('username').value.trim();
+    const username = document.getElementById('username').value.trim().toLowerCase();
     if (username) {
         currentUser = username;
         localStorage.setItem('gymApp_user', currentUser);
