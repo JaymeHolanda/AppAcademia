@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GymApp - Personal Trainer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Login View -->
+        <div id="view-login" class="view active">
+            <div class="glass-card login-card">
+                <img src="assets/gym_logo.jpg" alt="Logo" class="logo">
+                <h1>Bem-vindo</h1>
+                <p>Seu progresso começa aqui</p>
+                <form id="login-form">
+                    <input type="text" id="username" placeholder="Nome de usuário" required autocomplete="off">
+                    <input type="password" id="password" placeholder="Senha" required>
+                    <button type="submit" class="btn-primary">Entrar / Cadastrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Home View -->
+        <div id="view-home" class="view">
+            <header class="app-header">
+                <h2>Olá, <span id="user-display-name">Atleta</span></h2>
+                <button id="btn-logout" class="icon-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+            </header>
+            
+            <div class="content-scroll">
+                <div class="weekly-progress">
+                    <h3>Progresso da Semana</h3>
+                    <div class="days-container" id="days-container">
+                        <!-- Days injected via JS -->
+                    </div>
+                </div>
+
+                <div class="workout-cards">
+                    <h3>Treino de Hoje</h3>
+                    <div id="today-workout-container">
+                        <!-- Today workout injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Admin Panel -->
+                <div id="admin-panel" style="display: none; margin-top: 30px;">
+                    <h3 style="color: var(--secondary);"><i class="fa-solid fa-shield-halved"></i> Modo Admin</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Acesso liberado a todos os treinos ignorando o dia da semana.</p>
+                    <div id="admin-workouts-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout View -->
+        <div id="view-workout" class="view">
+            <header class="app-header" style="padding-bottom: 10px;">
+                <button id="btn-back-home" class="icon-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                <h2 id="workout-title">Treino</h2>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Progress Bar -->
+            <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.1);">
+                <div id="workout-progress-bar" style="height: 100%; width: 0%; background: var(--primary); transition: width 0.4s ease; box-shadow: 0 0 10px var(--primary-glow);"></div>
+            </div>
+            
+            <div class="workout-runner">
+                <div class="exercise-image-container">
+                    <img src="" id="exercise-image" alt="Exercício">
+                    <div class="workout-overlay"></div>
+                </div>
+                
+                <div class="exercise-info text-center">
+                    <h3 id="exercise-name" style="color: var(--primary); margin-bottom: 5px;">Nome</h3>
+                    <p id="exercise-sets" style="color: var(--text-light);">4 x 10</p>
+                </div>
+
+                <!-- Campo de Carga -->
+                <div class="weight-tracker">
+                    <label for="exercise-weight">Carga (kg):</label>
+                    <input type="number" id="exercise-weight" placeholder="Ex: 20" step="0.5" min="0">
+                </div>
+
+                <div class="sets-tracker" id="sets-tracker">
+                        <!-- Circles injected via JS -->
+                    </div>
+
+                    <div class="timer-container" id="timer-container" style="display: none;">
+                        <div class="timer-circle">
+                            <span id="timer-display">01:00</span>
+                        </div>
+                        <p>Descanso</p>
+                        <button id="btn-skip-timer" class="btn-secondary btn-small">Pular</button>
+                    </div>
+
+                    <button id="btn-next-set" class="btn-primary btn-large pulse-animation">Completar Série</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Completion Modal -->
+        <div id="completion-modal" class="modal">
+            <div class="glass-card modal-content">
+                <i class="fa-solid fa-trophy trophy-icon"></i>
+                <h2>Treino Concluído!</h2>
+                <p>Excelente trabalho. Seu progresso foi salvo.</p>
+                <button id="btn-finish-workout" class="btn-primary">Voltar ao Início</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
