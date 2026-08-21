@@ -224,7 +224,7 @@ window.startWorkout = function(workoutId) {
 function updateProgressBar() {
     window.completedWorkoutSets = window.exerciseStates.reduce((acc, curr) => acc + curr, 0);
     const percentage = (window.completedWorkoutSets / window.totalWorkoutSets) * 100;
-    document.getElementById('workout-progress-bar').style.width = ${percentage}%;
+    document.getElementById('workout-progress-bar').style.width = `${percentage}%`;
 }
 
 function renderExercise() {
@@ -358,7 +358,7 @@ function hideTimer() {
 function updateTimerDisplay(seconds) {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
-    document.getElementById('timer-display').textContent = ${m}:${s};
+    document.getElementById('timer-display').textContent = `${m}:${s}`;
 }
 
 function showCompletionModal() {
@@ -394,4 +394,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
