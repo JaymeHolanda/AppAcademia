@@ -233,7 +233,7 @@ function renderExercise() {
     currentSet = window.exerciseStates[currentExerciseIndex];
     
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga M�xima';
+    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga Máxima';
     
     document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
     
@@ -274,10 +274,10 @@ function renderExercise() {
     const btnFinish = document.getElementById('btn-finish-workout');
     
     if (currentSet >= totalSets) {
-        btnSet.textContent = 'Conclu�do';
+        btnSet.textContent = 'Concluído';
         btnSet.style.opacity = '0.5';
     } else {
-        btnSet.textContent = 'Completar S�rie';
+        btnSet.textContent = 'Completar Série';
         btnSet.style.opacity = '1';
     }
     btnSet.style.display = 'block';
@@ -315,7 +315,7 @@ function handleNextSet() {
         startRestTimer(60, false);
     } else {
         const btnSet = document.getElementById('btn-next-set');
-        btnSet.textContent = 'Conclu�do';
+        btnSet.textContent = 'Concluído';
         btnSet.style.opacity = '0.5';
     }
 }
