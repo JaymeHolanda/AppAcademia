@@ -1,4 +1,4 @@
-// --- FIREBASE CONFIG ---
+ï»¿// --- FIREBASE CONFIG ---
 const firebaseConfig = {
   apiKey: "AIzaSyCxvKi6pqM7bFv8s8Xj5Q5BzP_p1By-pAw",
   authDomain: "appupplower.firebaseapp.com",
@@ -233,7 +233,7 @@ function renderExercise() {
     currentSet = window.exerciseStates[currentExerciseIndex];
     
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga Máxima';
+    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga Mï¿½xima';
     
     document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
     
@@ -274,10 +274,10 @@ function renderExercise() {
     const btnFinish = document.getElementById('btn-finish-workout');
     
     if (currentSet >= totalSets) {
-        btnSet.textContent = 'Concluído';
+        btnSet.textContent = 'Concluï¿½do';
         btnSet.style.opacity = '0.5';
     } else {
-        btnSet.textContent = 'Completar Série';
+        btnSet.textContent = 'Completar Sï¿½rie';
         btnSet.style.opacity = '1';
     }
     btnSet.style.display = 'block';
@@ -315,7 +315,7 @@ function handleNextSet() {
         startRestTimer(60, false);
     } else {
         const btnSet = document.getElementById('btn-next-set');
-        btnSet.textContent = 'Concluído';
+        btnSet.textContent = 'Concluï¿½do';
         btnSet.style.opacity = '0.5';
     }
 }
@@ -336,6 +336,7 @@ function startRestTimer(seconds, autoNext) {
             clearInterval(timerInterval);
             hideTimer();
             document.getElementById('btn-next-set').style.display = 'block';
+            playBeep();
             if(autoNext && window.navigator && window.navigator.vibrate) {
                 window.navigator.vibrate([200, 100, 200]);
             }
@@ -396,3 +397,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+function playBeep() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.type = 'sine';
+        oscillator.frequency.value = 800;
+        gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+        oscillator.start(audioCtx.currentTime);
+        oscillator.stop(audioCtx.currentTime + 0.5);
+    } catch(e) {}
+}
