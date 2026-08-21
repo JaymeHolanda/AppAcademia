@@ -36,6 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-next-set').addEventListener('click', handleNextSet);
     document.getElementById('btn-skip-timer').addEventListener('click', () => skipTimer(false));
     document.getElementById('btn-finish-workout').addEventListener('click', finishWorkout);
+
+    const phonkPlayer = document.getElementById('phonk-player');
+    document.querySelectorAll('.phonk-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (phonkPlayer.paused) {
+                phonkPlayer.play();
+                document.querySelectorAll('.phonk-toggle').forEach(b => b.classList.add('playing'));
+            } else {
+                phonkPlayer.pause();
+                document.querySelectorAll('.phonk-toggle').forEach(b => b.classList.remove('playing'));
+            }
+        });
+    });
 });
 
 // --- AUTHENTICATION ---
@@ -341,3 +354,4 @@ function finishWorkout() {
     renderHome();
     switchView(viewHome);
 }
+

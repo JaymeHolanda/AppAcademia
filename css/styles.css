@@ -162,3 +162,7 @@ input:focus { border-color: var(--primary); box-shadow: 0 0 10px var(--primary-g
 .modal.active { opacity: 1; pointer-events: all; }
 .modal-content { text-align: center; gap: 20px; display: flex; flex-direction: column; }
 .trophy-icon { font-size: 4rem; color: #fbbf24; text-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
+
+.phonk-toggle.playing { color: var(--primary); border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); animation: pulse 1s infinite alternate; }
+@keyframes pulse { from { box-shadow: 0 0 5px var(--primary-glow); } to { box-shadow: 0 0 20px var(--primary-glow); } }
+
