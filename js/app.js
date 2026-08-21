@@ -35,20 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-back-home').addEventListener('click', () => switchView(viewHome));
     document.getElementById('btn-next-set').addEventListener('click', handleNextSet);
     document.getElementById('btn-skip-timer').addEventListener('click', () => skipTimer(false));
-    document.getElementById('btn-finish-workout').addEventListener('click', finishWorkout);
+    document.getElementById('btn-finish-workout').addEventListener('click', showCompletionModal);
 
-    const phonkPlayer = document.getElementById('phonk-player');
-    document.querySelectorAll('.phonk-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (phonkPlayer.paused) {
-                phonkPlayer.play();
-                document.querySelectorAll('.phonk-toggle').forEach(b => b.classList.add('playing'));
-            } else {
-                phonkPlayer.pause();
-                document.querySelectorAll('.phonk-toggle').forEach(b => b.classList.remove('playing'));
-            }
-        });
-    });
+    
 });
 
 // --- AUTHENTICATION ---
@@ -213,14 +202,17 @@ function renderHome() {
 }
 
 // --- WORKOUT EXECUTION ---
-// Needed to expose for onclick from HTML string
+window.exerciseStates = [];
+
 window.startWorkout = function(workoutId) {
     activeWorkout = WORKOUT_DATA[workoutId];
     currentExerciseIndex = 0;
-    currentSet = 0;
     
-    // Progress Bar Logic
-    window.totalWorkoutSets = activeWorkout.exercises.reduce((total, ex) => total + ex.sets, 0);
+    // Inicializa o estado de cada exercicio (serie atual 0)
+    window.exerciseStates = activeWorkout.exercises.map(() => 0);
+    
+    // Progress Bar Logic (5 series por exercicio)
+    window.totalWorkoutSets = activeWorkout.exercises.length * 5;
     window.completedWorkoutSets = 0;
     updateProgressBar();
     
@@ -230,78 +222,109 @@ window.startWorkout = function(workoutId) {
 }
 
 function updateProgressBar() {
+    window.completedWorkoutSets = window.exerciseStates.reduce((acc, curr) => acc + curr, 0);
     const percentage = (window.completedWorkoutSets / window.totalWorkoutSets) * 100;
-    document.getElementById('workout-progress-bar').style.width = `${percentage}%`;
+    document.getElementById('workout-progress-bar').style.width = ${percentage}%;
 }
 
 function renderExercise() {
     const exercise = activeWorkout.exercises[currentExerciseIndex];
+    const totalSets = 5;
+    currentSet = window.exerciseStates[currentExerciseIndex];
+    
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = `${exercise.sets} x ${exercise.reps}`;
+    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga Máxima';
     
     document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
     
-    // Load and save weight logic
-    const weightInput = document.getElementById('exercise-weight');
+    // Load inputs
     if (!memory.weights) memory.weights = {};
+    if (!memory.weights_warmup) memory.weights_warmup = {};
+    if (!memory.bench_heights) memory.bench_heights = {};
+    if (!memory.bench_enabled) memory.bench_enabled = {};
+
+    const warmupInput = document.getElementById('warmup-weight');
+    const weightInput = document.getElementById('exercise-weight');
+    
+    warmupInput.value = memory.weights_warmup[exercise.name] || '';
     weightInput.value = memory.weights[exercise.name] || '';
     
-    weightInput.onchange = (e) => {
-        memory.weights[exercise.name] = e.target.value;
+    warmupInput.onchange = (e) => { memory.weights_warmup[exercise.name] = e.target.value; saveMemory(); };
+    weightInput.onchange = (e) => { memory.weights[exercise.name] = e.target.value; saveMemory(); };
+
+    const benchCheck = document.getElementById('enable-bench');
+    const benchContainer = document.getElementById('bench-height-container');
+    const benchInput = document.getElementById('bench-height');
+
+    benchCheck.checked = memory.bench_enabled[exercise.name] || false;
+    benchContainer.style.display = benchCheck.checked ? 'flex' : 'none';
+    benchInput.value = memory.bench_heights[exercise.name] || '';
+
+    benchCheck.onchange = (e) => {
+        memory.bench_enabled[exercise.name] = e.target.checked;
+        benchContainer.style.display = e.target.checked ? 'flex' : 'none';
         saveMemory();
     };
+    benchInput.onchange = (e) => { memory.bench_heights[exercise.name] = e.target.value; saveMemory(); };
     
-    renderSetsTracker(exercise.sets);
+    renderSetsTracker();
     hideTimer();
     
-    const btn = document.getElementById('btn-next-set');
-    btn.textContent = 'Completar SÃ©rie';
-    btn.style.display = 'block';
+    const btnSet = document.getElementById('btn-next-set');
+    const btnFinish = document.getElementById('btn-finish-workout');
+    
+    if (currentSet >= totalSets) {
+        btnSet.textContent = 'Concluído';
+        btnSet.style.opacity = '0.5';
+    } else {
+        btnSet.textContent = 'Completar Série';
+        btnSet.style.opacity = '1';
+    }
+    btnSet.style.display = 'block';
+
+    if (currentExerciseIndex === activeWorkout.exercises.length - 1) {
+        btnFinish.style.display = 'block';
+    } else {
+        btnFinish.style.display = 'none';
+    }
 }
 
-function renderSetsTracker(totalSets) {
+function renderSetsTracker() {
     const tracker = document.getElementById('sets-tracker');
     tracker.innerHTML = '';
-    for(let i=0; i<totalSets; i++) {
+    for(let i=0; i<5; i++) {
         const bubble = document.createElement('div');
-        bubble.className = `set-bubble ${i < currentSet ? 'done' : ''}`;
+        let classNames = 'set-bubble';
+        if (i < 2) classNames += ' warmup';
+        if (i < currentSet) classNames += ' done';
+        bubble.className = classNames;
         bubble.textContent = i + 1;
         tracker.appendChild(bubble);
     }
 }
 
 function handleNextSet() {
-    const exercise = activeWorkout.exercises[currentExerciseIndex];
+    if (currentSet >= 5) return;
+    
     currentSet++;
-    window.completedWorkoutSets++;
+    window.exerciseStates[currentExerciseIndex] = currentSet;
     updateProgressBar();
+    renderSetsTracker();
     
-    renderSetsTracker(exercise.sets);
-    
-    if (currentSet >= exercise.sets) {
-        currentExerciseIndex++;
-        if (currentExerciseIndex >= activeWorkout.exercises.length) {
-            showCompletionModal();
-        } else {
-            currentSet = 0;
-            startRestTimer(exercise.rest, true); 
-        }
+    if (currentSet < 5) {
+        startRestTimer(60, false);
     } else {
-        startRestTimer(exercise.rest, false);
+        const btnSet = document.getElementById('btn-next-set');
+        btnSet.textContent = 'Concluído';
+        btnSet.style.opacity = '0.5';
     }
 }
 
-function startRestTimer(seconds, nextExercise) {
-    if(seconds <= 0) {
-        if(nextExercise) renderExercise();
-        return;
-    }
-
-    const btn = document.getElementById('btn-next-set');
-    btn.style.display = 'none'; 
+function startRestTimer(seconds, autoNext) {
+    if(seconds <= 0) return;
     
-    const timerContainer = document.getElementById('timer-container');
-    timerContainer.style.display = 'flex';
+    document.getElementById('btn-next-set').style.display = 'none'; 
+    document.getElementById('timer-container').style.display = 'flex';
     
     let remaining = seconds;
     updateTimerDisplay(remaining);
@@ -309,33 +332,33 @@ function startRestTimer(seconds, nextExercise) {
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
         remaining--;
-        updateTimerDisplay(remaining);
-        
-        if(remaining <= 0) {
-            skipTimer(nextExercise);
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            hideTimer();
+            document.getElementById('btn-next-set').style.display = 'block';
+            if(autoNext && window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate([200, 100, 200]);
+            }
+        } else {
+            updateTimerDisplay(remaining);
         }
     }, 1000);
+}
+
+function skipTimer() {
+    clearInterval(timerInterval);
+    hideTimer();
+    document.getElementById('btn-next-set').style.display = 'block';
+}
+
+function hideTimer() {
+    document.getElementById('timer-container').style.display = 'none';
 }
 
 function updateTimerDisplay(seconds) {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
-    document.getElementById('timer-display').textContent = `${m}:${s}`;
-}
-
-function skipTimer(isNextExercise) {
-    clearInterval(timerInterval);
-    hideTimer();
-    
-    if (currentSet === 0 && currentExerciseIndex > 0) {
-        renderExercise();
-    } else {
-        document.getElementById('btn-next-set').style.display = 'block';
-    }
-}
-
-function hideTimer() {
-    document.getElementById('timer-container').style.display = 'none';
+    document.getElementById('timer-display').textContent = ${m}:${s};
 }
 
 function showCompletionModal() {
@@ -349,9 +372,26 @@ function showCompletionModal() {
     document.getElementById('completion-modal').classList.add('active');
 }
 
-function finishWorkout() {
+function closeModal() {
     document.getElementById('completion-modal').classList.remove('active');
     renderHome();
     switchView(viewHome);
 }
+
+// Global Nav Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btn-prev-exercise').addEventListener('click', () => {
+        if (currentExerciseIndex > 0) {
+            currentExerciseIndex--;
+            renderExercise();
+        }
+    });
+
+    document.getElementById('btn-next-exercise').addEventListener('click', () => {
+        if (currentExerciseIndex < activeWorkout?.exercises.length - 1) {
+            currentExerciseIndex++;
+            renderExercise();
+        }
+    });
+});
 
