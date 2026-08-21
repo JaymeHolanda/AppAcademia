@@ -32,7 +32,10 @@
         <div id="view-home" class="view">
             <header class="app-header">
                 <h2>Olá, <span id="user-display-name">Atleta</span></h2>
-                <button id="btn-logout" class="icon-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                <div style="display: flex; gap: 10px;">
+                    <button class="icon-btn phonk-toggle" title="Phonk Radio"><i class="fa-solid fa-headphones"></i></button>
+                    <button id="btn-logout" class="icon-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                </div>
             </header>
             
             <div class="content-scroll">
@@ -66,7 +69,7 @@
             <header class="app-header" style="padding-bottom: 10px;">
                 <button id="btn-back-home" class="icon-btn"><i class="fa-solid fa-arrow-left"></i></button>
                 <h2 id="workout-title">Treino</h2>
-                <div style="width: 40px;"></div>
+                <button class="icon-btn phonk-toggle" title="Phonk Radio"><i class="fa-solid fa-headphones"></i></button>
             </header>
             
             <!-- Progress Bar -->
