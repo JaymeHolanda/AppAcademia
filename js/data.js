@@ -4,16 +4,13 @@
         name: 'Upper Body 1',
         image: 'assets/upper_body.jpg',
         exercises: [
-            { name: 'Supino Inclinado Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Incline_Chest_Press/0.jpg' },
-            { name: 'Voador', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
-            { name: 'Remada Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Iso_Row/0.jpg' },
-            { name: 'Pulley Aberto', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Close-Grip_Front_Lat_Pulldown/0.jpg' },
-            { name: 'Desenvolvimento com Halteres', sets: 3, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Shoulder_Press/0.jpg' },
-            { name: 'Rosca Scott', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Preacher_Curl/0.jpg' },
-            { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
-            { name: 'Tríceps Corda', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Grip_Triceps_Pushdown/0.jpg' },
-            { name: 'Tríceps na Polia com Barra', sets: 4, reps: '10-12', rest: 45, image: 'assets/triceps_barra.png' },
-            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://api.smartworkout.app/asset/video/1f84649e-44a8-4a81-948b-df2865128577.mp4' }
+            { name: 'Supino Inclinado Máquina', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Incline_Chest_Press/0.jpg' },
+            { name: 'Remada Máquina', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Iso_Row/0.jpg' },
+            { name: 'Voador', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
+            { name: 'Pulley Aberto', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Close-Grip_Front_Lat_Pulldown/0.jpg' },
+            { name: 'Elevação Lateral na Polia', sets: 5, reps: '12-15', rest: 45, image: 'assets/cable_lateral_raise.png' },
+            { name: 'Rosca Scott', sets: 5, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Preacher_Curl/0.jpg' },
+            { name: 'Tríceps Corda', sets: 5, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Grip_Triceps_Pushdown/0.jpg' }
         ]
     },
     lower1: {
@@ -21,14 +18,14 @@
         name: 'Lower Body 1',
         image: 'assets/lower_body.jpg',
         exercises: [
-            { name: 'Flexor Sentado', sets: 4, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Leg_Curl/0.jpg' },
-            { name: 'Stiff', sets: 4, reps: '10-12', rest: 90, image: 'https://i.pinimg.com/originals/82/4d/fd/824dfd405284597cd20e8a55233e2d77.gif' },
-            { name: 'Hack Machine', sets: 4, reps: '10-12', rest: 90, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hack_Squat/0.jpg' },
-            { name: 'Extensor', sets: 4, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/0.jpg' },
-            { name: 'Adutor', sets: 4, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Adductor/0.jpg' },
-            { name: 'Abdutor', sets: 4, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Abductor/0.jpg' },
-            { name: 'Coice na Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Glute_Kickback/0.jpg' },
-            { name: 'Panturrilha Máquina em Pé', sets: 4, reps: '15-20', rest: 45, image: 'assets/panturrilha.png' }
+            { name: 'Extensor', sets: 5, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/0.jpg' },
+            { name: 'Hack Machine', sets: 5, reps: '10-12', rest: 90, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hack_Squat/0.jpg' },
+            { name: 'Flexor Sentado', sets: 5, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Leg_Curl/0.jpg' },
+            { name: 'Stiff', sets: 5, reps: '10-12', rest: 90, image: 'https://i.pinimg.com/originals/82/4d/fd/824dfd405284597cd20e8a55233e2d77.gif' },
+            { name: 'Adutor', sets: 5, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Adductor/0.jpg' },
+            { name: 'Abdutor', sets: 5, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Abductor/0.jpg' },
+            { name: 'Lombar Máquina', sets: 5, reps: '10-15', rest: 60, image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2021/12/full-stretch-for-hyperextension.gif' },
+            { name: 'Panturrilha Máquina em Pé', sets: 5, reps: '15-20', rest: 45, image: 'assets/panturrilha.png' }
         ]
     },
     upper2: {
@@ -36,16 +33,13 @@
         name: 'Upper Body 2',
         image: 'assets/upper_body.jpg',
         exercises: [
-            { name: 'Supino Reto Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Chest_Press/0.jpg' },
-            { name: 'Remada Máquina Fechada', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg' },
-            { name: 'Crucifixo na Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
-            { name: 'Pulley Triângulo', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/V-Bar_Pulldown/0.jpg' },
-            { name: 'Elevação Lateral na Polia', sets: 4, reps: '12-15', rest: 45, image: 'assets/cable_lateral_raise.png' },
-            { name: 'Rosca Direta Cabo', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Biceps_Cable_Curl/0.jpg' },
-            { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
-            { name: 'Tríceps Francês', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Triceps_Press/0.jpg' },
-            { name: 'Tríceps na Polia com Barra', sets: 4, reps: '10-12', rest: 45, image: 'assets/triceps_barra.png' },
-            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://api.smartworkout.app/asset/video/1f84649e-44a8-4a81-948b-df2865128577.mp4' }
+            { name: 'Supino Reto Máquina', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Chest_Press/0.jpg' },
+            { name: 'Remada Máquina Fechada', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg' },
+            { name: 'Crucifixo na Máquina', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
+            { name: 'Pulley Triângulo', sets: 5, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/V-Bar_Pulldown/0.jpg' },
+            { name: 'Elevação Lateral na Polia', sets: 5, reps: '12-15', rest: 45, image: 'assets/cable_lateral_raise.png' },
+            { name: 'Rosca Direta Cabo', sets: 5, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Biceps_Cable_Curl/0.jpg' },
+            { name: 'Tríceps na Polia com Barra', sets: 5, reps: '10-12', rest: 45, image: 'assets/triceps_barra.png' }
         ]
     },
     lower2: {
@@ -53,14 +47,14 @@
         name: 'Lower Body 2',
         image: 'assets/lower_body.jpg',
         exercises: [
-            { name: 'Flexor Sentado', sets: 4, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Leg_Curl/0.jpg' },
-            { name: 'Stiff', sets: 4, reps: '10-12', rest: 90, image: 'https://i.pinimg.com/originals/82/4d/fd/824dfd405284597cd20e8a55233e2d77.gif' },
-            { name: 'Hack Machine', sets: 4, reps: '10-12', rest: 90, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hack_Squat/0.jpg' },
-            { name: 'Extensor', sets: 4, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/0.jpg' },
-            { name: 'Adutor', sets: 4, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Adductor/0.jpg' },
-            { name: 'Abdutor', sets: 4, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Abductor/0.jpg' },
-            { name: 'Coice na Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Glute_Kickback/0.jpg' },
-            { name: 'Panturrilha Máquina em Pé', sets: 4, reps: '15-20', rest: 45, image: 'assets/panturrilha.png' }
+            { name: 'Extensor', sets: 5, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/0.jpg' },
+            { name: 'Hack Machine', sets: 5, reps: '10-12', rest: 90, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hack_Squat/0.jpg' },
+            { name: 'Flexor Sentado', sets: 5, reps: '10-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Leg_Curl/0.jpg' },
+            { name: 'Stiff', sets: 5, reps: '10-12', rest: 90, image: 'https://i.pinimg.com/originals/82/4d/fd/824dfd405284597cd20e8a55233e2d77.gif' },
+            { name: 'Adutor', sets: 5, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Adductor/0.jpg' },
+            { name: 'Abdutor', sets: 5, reps: '12-15', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Thigh_Abductor/0.jpg' },
+            { name: 'Lombar Máquina', sets: 5, reps: '10-15', rest: 60, image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2021/12/full-stretch-for-hyperextension.gif' },
+            { name: 'Panturrilha Máquina em Pé', sets: 5, reps: '15-20', rest: 45, image: 'assets/panturrilha.png' }
         ]
     },
     cardio: {
@@ -69,8 +63,7 @@
         image: 'assets/cardio.jpg',
         exercises: [
             { name: 'Esteira, Bike ou Elíptico', sets: 1, reps: '45-60 min', rest: 0 },
-            { name: 'Lombar Máquina', sets: 4, reps: '10-15', rest: 60, image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2021/12/full-stretch-for-hyperextension.gif' },
-            { name: 'Abdômen Crunch', sets: 4, reps: '15-20', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunch/0.jpg' }
+            { name: 'Abdômen Crunch', sets: 5, reps: '15-20', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunch/0.jpg' }
         ]
     }
 };
@@ -84,5 +77,3 @@ const WEEK_SCHEDULE = [
     { dayId: 6, name: 'Sáb', workout: 'rest', fullWorkoutName: 'Descanso' },
     { dayId: 0, name: 'Dom', workout: 'rest', fullWorkoutName: 'Descanso' }
 ];
-
-

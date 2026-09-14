@@ -229,11 +229,11 @@ function updateProgressBar() {
 
 function renderExercise() {
     const exercise = activeWorkout.exercises[currentExerciseIndex];
-    const totalSets = 4;
+    const totalSets = memory.warmup_enabled ? 5 : 3;
     currentSet = window.exerciseStates[currentExerciseIndex];
     
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 2x Carga Máxima';
+    document.getElementById('exercise-sets').textContent = (memory.warmup_enabled ? '2x Aquecimento + 3x Carga Máxima' : '3x Carga Máxima');
     
     const src = exercise.image || activeWorkout.image;
     const imgEl = document.getElementById('exercise-image');
@@ -306,7 +306,7 @@ function renderSetsTracker() {
     for(let i=0; i<4; i++) {
         const bubble = document.createElement('div');
         let classNames = 'set-bubble';
-        if (i < 2) classNames += ' warmup';
+        if (memory.warmup_enabled && i < 2) classNames += ' warmup';
         if (i < currentSet) classNames += ' done';
         bubble.className = classNames;
         bubble.textContent = i + 1;
@@ -425,6 +425,7 @@ function playBeep() {
         oscillator.stop(audioCtx.currentTime + 0.5);
     } catch(e) {}
 }
+
 
 
 
