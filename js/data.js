@@ -1,4 +1,4 @@
-const WORKOUT_DATA = {
+﻿const WORKOUT_DATA = {
     upper1: {
         id: 'upper1',
         name: 'Upper Body 1',
@@ -9,7 +9,8 @@ const WORKOUT_DATA = {
             { name: 'Remada Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Iso_Row/0.jpg' },
             { name: 'Pulley Aberto', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Close-Grip_Front_Lat_Pulldown/0.jpg' },
             { name: 'Desenvolvimento com Halteres', sets: 3, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Shoulder_Press/0.jpg' },
-            { name: 'Rosca Scott', sets: 3, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Preacher_Curl/0.jpg' },
+            { name: 'Rosca Scott', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Preacher_Curl/0.jpg' },
+            { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
             { name: 'Tríceps Corda', sets: 3, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Grip_Triceps_Pushdown/0.jpg' }
         ]
     },
@@ -31,11 +32,12 @@ const WORKOUT_DATA = {
         image: 'assets/upper_body.jpg',
         exercises: [
             { name: 'Supino Reto Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leverage_Chest_Press/0.jpg' },
-            { name: 'Remada Máquina Fechada', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Elevated_Cable_Rows/0.jpg' },
-            { name: 'Crucifixo com Halteres (Banco Inclinado)', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Flyes/0.jpg' },
+            { name: 'Remada Máquina Fechada', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg' },
+            { name: 'Crucifixo na Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
             { name: 'Pulley Triângulo', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/V-Bar_Pulldown/0.jpg' },
-            { name: 'Elevação Lateral com Halteres', sets: 4, reps: '12-15', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Lateral_Raise/0.jpg' },
-            { name: 'Rosca Direta Cabo', sets: 3, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Biceps_Cable_Curl/0.jpg' },
+            { name: 'Elevação Lateral na Polia', sets: 4, reps: '12-15', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Seated_Lateral_Raise/0.jpg' },
+            { name: 'Rosca Direta Cabo', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Biceps_Cable_Curl/0.jpg' },
+            { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
             { name: 'Tríceps Francês', sets: 3, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Triceps_Press/0.jpg' }
         ]
     },
@@ -70,3 +72,4 @@ const WEEK_SCHEDULE = [
     { dayId: 6, name: 'Sáb', workout: 'rest', fullWorkoutName: 'Descanso' },
     { dayId: 0, name: 'Dom', workout: 'rest', fullWorkoutName: 'Descanso' }
 ];
+

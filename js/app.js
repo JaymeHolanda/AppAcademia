@@ -212,7 +212,7 @@ window.startWorkout = function(workoutId) {
     window.exerciseStates = activeWorkout.exercises.map(() => 0);
     
     // Progress Bar Logic (5 series por exercicio)
-    window.totalWorkoutSets = activeWorkout.exercises.length * 5;
+    window.totalWorkoutSets = activeWorkout.exercises.length * 4;
     window.completedWorkoutSets = 0;
     updateProgressBar();
     
@@ -229,11 +229,11 @@ function updateProgressBar() {
 
 function renderExercise() {
     const exercise = activeWorkout.exercises[currentExerciseIndex];
-    const totalSets = 5;
+    const totalSets = 4;
     currentSet = window.exerciseStates[currentExerciseIndex];
     
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 3x Carga Máxima';
+    document.getElementById('exercise-sets').textContent = '1x Aquecimento + 3x Carga Máxima';
     
     document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
     
@@ -292,10 +292,10 @@ function renderExercise() {
 function renderSetsTracker() {
     const tracker = document.getElementById('sets-tracker');
     tracker.innerHTML = '';
-    for(let i=0; i<5; i++) {
+    for(let i=0; i<4; i++) {
         const bubble = document.createElement('div');
         let classNames = 'set-bubble';
-        if (i < 2) classNames += ' warmup';
+        if (i < 1) classNames += ' warmup';
         if (i < currentSet) classNames += ' done';
         bubble.className = classNames;
         bubble.textContent = i + 1;
@@ -304,14 +304,14 @@ function renderSetsTracker() {
 }
 
 function handleNextSet() {
-    if (currentSet >= 5) return;
+    if (currentSet >= 4) return;
     
     currentSet++;
     window.exerciseStates[currentExerciseIndex] = currentSet;
     updateProgressBar();
     renderSetsTracker();
     
-    if (currentSet < 5) {
+    if (currentSet < 4) {
         startRestTimer(60, false);
     } else {
         const btnSet = document.getElementById('btn-next-set');
@@ -414,3 +414,4 @@ function playBeep() {
         oscillator.stop(audioCtx.currentTime + 0.5);
     } catch(e) {}
 }
+
