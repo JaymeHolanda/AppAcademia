@@ -69,7 +69,6 @@
         image: 'assets/cardio.jpg',
         exercises: [
             { name: 'Esteira, Bike ou Elíptico', sets: 1, reps: '45-60 min', rest: 0 },
-            { name: 'Graviton Pegada Aberta', sets: 4, reps: '10-12', rest: 60, image: 'assets/graviton.png' },
             { name: 'Lombar Máquina', sets: 4, reps: '10-15', rest: 60, image: 'https://www.hipertrofia.org/blog/wp-content/uploads/2021/12/full-stretch-for-hyperextension.gif' },
             { name: 'Abdômen Crunch', sets: 4, reps: '15-20', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunch/0.jpg' }
         ]
@@ -85,4 +84,5 @@ const WEEK_SCHEDULE = [
     { dayId: 6, name: 'Sáb', workout: 'rest', fullWorkoutName: 'Descanso' },
     { dayId: 0, name: 'Dom', workout: 'rest', fullWorkoutName: 'Descanso' }
 ];
+
 
