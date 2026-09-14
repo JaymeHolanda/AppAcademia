@@ -35,7 +35,7 @@
             { name: 'Remada Máquina Fechada', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg' },
             { name: 'Crucifixo na Máquina', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Butterfly/0.jpg' },
             { name: 'Pulley Triângulo', sets: 4, reps: '10-12', rest: 60, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/V-Bar_Pulldown/0.jpg' },
-            { name: 'Elevação Lateral na Polia', sets: 4, reps: '12-15', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Seated_Lateral_Raise/0.jpg' },
+            { name: 'Elevação Lateral na Polia', sets: 4, reps: '12-15', rest: 45, image: 'assets/cable_lateral_raise.png' },
             { name: 'Rosca Direta Cabo', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Biceps_Cable_Curl/0.jpg' },
             { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
             { name: 'Tríceps Francês', sets: 3, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Triceps_Press/0.jpg' }
