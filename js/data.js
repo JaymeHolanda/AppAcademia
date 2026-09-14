@@ -13,7 +13,7 @@
             { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
             { name: 'Tríceps Corda', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Grip_Triceps_Pushdown/0.jpg' },
             { name: 'Tríceps na Polia com Barra', sets: 4, reps: '10-12', rest: 45, image: 'assets/triceps_barra.png' },
-            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/0.jpg' }
+            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://api.smartworkout.app/asset/video/1f84649e-44a8-4a81-948b-df2865128577.mp4' }
         ]
     },
     lower1: {
@@ -43,7 +43,7 @@
             { name: 'Bíceps Máquina', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bicep_Curl/0.jpg' },
             { name: 'Tríceps Francês', sets: 4, reps: '10-12', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Triceps_Press/0.jpg' },
             { name: 'Tríceps na Polia com Barra', sets: 4, reps: '10-12', rest: 45, image: 'assets/triceps_barra.png' },
-            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/0.jpg' }
+            { name: 'Face Pull', sets: 4, reps: '12-15', rest: 45, image: 'https://api.smartworkout.app/asset/video/1f84649e-44a8-4a81-948b-df2865128577.mp4' }
         ]
     },
     lower2: {
@@ -80,3 +80,4 @@ const WEEK_SCHEDULE = [
     { dayId: 6, name: 'Sáb', workout: 'rest', fullWorkoutName: 'Descanso' },
     { dayId: 0, name: 'Dom', workout: 'rest', fullWorkoutName: 'Descanso' }
 ];
+

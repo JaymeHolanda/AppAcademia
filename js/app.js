@@ -235,7 +235,18 @@ function renderExercise() {
     document.getElementById('exercise-name').textContent = exercise.name;
     document.getElementById('exercise-sets').textContent = '2x Aquecimento + 2x Carga Máxima';
     
-    document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
+    const src = exercise.image || activeWorkout.image;
+    const imgEl = document.getElementById('exercise-image');
+    const vidEl = document.getElementById('exercise-video');
+    if (src.endsWith('.mp4') || src.includes('/video/')) {
+        imgEl.style.display = 'none';
+        vidEl.src = src;
+        vidEl.style.display = 'block';
+    } else {
+        vidEl.style.display = 'none';
+        imgEl.src = src;
+        imgEl.style.display = 'block';
+    }
     
     // Load inputs
     if (!memory.weights) memory.weights = {};
@@ -414,5 +425,6 @@ function playBeep() {
         oscillator.stop(audioCtx.currentTime + 0.5);
     } catch(e) {}
 }
+
 
 
