@@ -233,7 +233,7 @@ function renderExercise() {
     currentSet = window.exerciseStates[currentExerciseIndex];
     
     document.getElementById('exercise-name').textContent = exercise.name;
-    document.getElementById('exercise-sets').textContent = '1x Aquecimento + 3x Carga Máxima';
+    document.getElementById('exercise-sets').textContent = '2x Aquecimento + 2x Carga Máxima';
     
     document.getElementById('exercise-image').src = exercise.image || activeWorkout.image;
     
@@ -295,7 +295,7 @@ function renderSetsTracker() {
     for(let i=0; i<4; i++) {
         const bubble = document.createElement('div');
         let classNames = 'set-bubble';
-        if (i < 1) classNames += ' warmup';
+        if (i < 2) classNames += ' warmup';
         if (i < currentSet) classNames += ' done';
         bubble.className = classNames;
         bubble.textContent = i + 1;
